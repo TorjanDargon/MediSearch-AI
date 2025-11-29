@@ -1,0 +1,58 @@
+{
+  "answer": "**Summary of the paper**\n\nThe study presents an AI‑based system that automatically detects dental cavities from photographs of multiple teeth and provides visual explanations of its decisions. Key points include:\n\n1. **Motivation & Context**  \n   - Dental cavities are the most common chronic disease worldwide, yet diagnosis requires a trained dentist.  \n   - Barriers such as cost, dentophobia, and limited dentist availability prevent many people from receiving care.  \n   - Existing optical diagnostic devices (DIAGNodent™, DEXIS CariVu™, Canary System™) have limitations (e.g., limited detection scope, high cost, need for trained interpretation).  \n\n2. **Methodology**  \n   - 506 de‑identified images were collected from online sources and consenting participants.  \n   - A curriculum‑learning approach was used to train a deep‑learning classifier.  \n   - Three CNN architectures were compared; the pre‑trained ResNet‑27 achieved the best performance.  \n\n3. **Performance**  \n   - The ResNet‑27 model achieved **82.8 % accuracy** and **1.0 sensitivity** on the test set.  \n   - Transfer learning (pre‑training on ImageNet1K) significantly improved accuracy compared to un‑pre‑trained models (e.g., ResNet‑27 rose from 62 % to 77.7 % with pre‑training).  \n\n4. **Explainability**  \n   - The system generates visual explanations using Local Interpretable Model‑agnostic Explanations (LIME), allowing users to see which image regions influenced the diagnosis—an essential feature for user trust and clinical relevance.  \n\n5. **Clinical Implications**  \n   - Unlike prior systems that only examined a single extracted tooth surface, this system can analyze photographs containing multiple teeth and four surfaces, making it more applicable to real‑world dental examinations.  \n   - By providing automated, low‑cost cavity detection and explanations, the system could reduce barriers to care and support patients who cannot easily access a dentist.  \n\n**Bottom line:** The paper demonstrates that a pre‑trained ResNet‑27 model, trained with curriculum learning on a curated image set, can accurately detect cavities in multi‑tooth photographs and explain its predictions, offering a potential tool to overcome current diagnostic barriers.",
+  "retrieved_chunks": [
+    "Methods. While diagnosing cavities, dentists often utilize x-ray machines or optical diagnostic devices such as the DIAGNodent™, DEXIS CariVu™, and the Canary System™. However, there are many limitations associated with the optical diagnostic devices mentioned above [10]. Instead of detecting Streptococcus mutans (the cavity-causing bacteria which resides at the cavity), the DIAGNodent only detects fluorescence emitted by bacterial porphyrins, a common bacterium found everywhere in the mouth. The use of trans-illumination prevents the CariVu from detecting cavities on smooth surfaces and around 140 --- Page 2 --- filling, while the Canary System’s limiting factor is cost. At $16,000, the Canary System costs three times more than the CariVu at $5,295 [11]. Above all, these systems’ outputs require a trained dentist to interpret. Visual Examination. Typically, a dentist reaches his/her diagnosis during a visual examination. During an exam, a dentist can identify a patient’s cavity, inform the patient about the cavity’s development, and suggest changes to the patient’s oral routine. As a visual examination mainly relies on a dentist’s trained eye, this method is the most cost- efficient from an equipment perspective. However, visual examination still has one requirement that prevents millions of people from receiving a proper cavity diagnosis; the method requires a dentist. Receiving a dentist’s diagnosis, in general, is difficult for many as cost, fear of pain, and lack of dental insurance pose as barriers [12]. Some of these barriers could be addressed with an AI diagnostic system that automatically detects cavity presence and provides a diagnostic explanation at lower cost and without an initial dental visit. Previous Research in the Use of AI in Cavity Detection. AI has been applied to several problems in medical imaging. From melanoma detection [13] to breast cancer prediction [14], as well as for diabetic retinopathy diagnosis from fundus imaging [15]. However,",
+    "into one group (cavity presence), and ICDAS Figure 7. The test dataset representing all levels of decay. 143 --- Page 5 --- class 0 images were in another (no cavity presence). However, analyses were done using all 7 ICDAS classes. Artificial Neural Network (ANN) Models. The performance Table 1. Summary of Each ANN Model’s Architecture of 3 ANN architectures in cavity detection was initially compared using the 2019 Web-Searched Dataset. The architectures included a hand-designed CNN, a ResNet-18 model, and a ResNet-27 model. Table 1 shows each model’s architecture in terms of their layers and if the architecture had an ImageNet1K base model available. Phase 1 of Training: Transfer Learning. Models pre-trained on the ImageNet1K dataset produced higher accuracy compared to their base models. Pre-training allowed for better learning, which is supported by the accuracies presented in Figure 8. Without pre-training, 62% accuracy was achieved by the ResNet-27. However, with the use of pre-trained weights, accuracy increased to 77.7%. Based on these results, it was evident that transfer learning had improved performance. Initial 12-layered CNN. As the CNN model wasn’t pre-trained on a larger data set, the model’s performance in detecting Figure 8. Overall performance of the architectures cavities was similar to random guessing (50%). Thus, it was as transfer learning experiments were conducted. concluded that the model was inadequate in detecting cavities. Pre-trained ResNet-18. Both ResNet models were pre-trained on the ImageNet1K dataset. However, the ResNet-18 diagnosed the 63-image test set with an accuracy of 76.1%. Unlike the initial CNN, the ResNet-18’s accuracy values increased as more training epochs were completed (Figure 9). This indicated that pre-training in conjunction with using a ResNet architecture improved a classifier’s diagnostic ability. Figure 9. Ideal upward accuracy trend was exhibited. Pre-trained ResNet-27 (Model X). Highest accuracy values were obtained by the pre-trained",
+    "--- Page 1 --- Automated Dental Cavity Detection System Using Deep Learning and Explainable AI Niharika Bhattacharjee, University of Illinois at Urbana Champaign, Urbana, Illinois Abstract Impacting over 3.9 billion people, dental cavities requires a trained dentist for diagnosis. Unfortunately, barriers such as dentophobia, limited dentist availability, and lack of dental insurance prevent millions from receiving care. To address this, an Artificial Intelligence system was developed that detects cavity presence on photographs and visually explains the rationale behind each diagnosis. While previous systems only detected cavities on one extracted tooth showing one tooth surface, this study’s system detects cavities on photographs showing multiple teeth and four tooth surfaces. For training, 506 de-identified images from online sources and consenting human participants were collected. Using curriculum learning, a ResNet-27 architecture proved to be most optimal after achieving 82.8% accuracy and 1.0 in sensitivity. Visual explanations for the system’s diagnoses were also generated using Local Interpretable Model Agnostic Explanation. This system can explain its diagnoses to users in an understandable manner, which is a crucial skill employed by dentists. Introduction Dental cavities rank as the most prevalent chronic disease worldwide [1]. While cavity detection requires the services of a trained dentist, 1 in 3 Americans don’t visit a dentist annually due to cost or dentophobia [2]. Additionally, chances of proper cavity diagnoses are lowered in developing nations, as the dentist to patient ratio is disproportionate (i.e., 1: 1,250,000 in Ethiopia [3]). Due to various financial and infrastructural barriers, millions lack proper dental care. As a result of limited dental resources, 2.4 billion people also suffer from untreated tooth decay, which can lead to toothaches and periapical abscesses [4]. Previous studies have tried to automate cavity detection by developing deep learning (DL) classifiers that detect cavities on X-ray images [5-6]. Unfortunately, these systems aren’t"
+  ],
+  "hypotheses": [
+    {
+      "hypothesis": "A ResNet-27 model trained with curriculum learning on 506 multi‑tooth photographs achieves 82.8% accuracy and 100% sensitivity for cavity detection.",
+      "mechanism": "Curriculum learning gradually exposes the network to increasingly complex images, improving feature extraction. The deep ResNet‑27 architecture captures subtle texture and color cues across multiple tooth surfaces.",
+      "supporting_chunks": [
+        2,
+        1
+      ],
+      "confidence": 0.92,
+      "suggested_experiments": [
+        "Evaluate the model on an independent test set of photographs from a different source to confirm generalization.",
+        "Perform ablation studies removing curriculum learning to quantify its contribution to accuracy and sensitivity.",
+        "Compare performance with a baseline ResNet‑18 trained under the same conditions."
+      ]
+    },
+    {
+      "hypothesis": "The AI system can generate interpretable visual explanations for its cavity predictions using Local Interpretable Model‑agnostic Explanations (LIME).",
+      "mechanism": "LIME approximates the local decision boundary around a prediction, highlighting image regions that most influence the output, thereby mimicking a dentist’s visual reasoning.",
+      "supporting_chunks": [
+        2
+      ],
+      "confidence": 0.85,
+      "suggested_experiments": [
+        "Quantitatively assess explanation fidelity by comparing LIME‑highlighted regions with expert‑annotated cavity boundaries.",
+        "Conduct a user study where patients and dentists evaluate the usefulness and trustworthiness of the explanations.",
+        "Compare LIME explanations with alternative methods such as Grad‑CAM to determine relative interpretability."
+      ]
+    },
+    {
+      "hypothesis": "Deploying this AI diagnostic system could reduce barriers to dental care by enabling low‑cost, non‑expert cavity detection from photographs.",
+      "mechanism": "The system can run on consumer devices (e.g., smartphones), eliminating the need for in‑office X‑ray equipment and trained dentists, thereby lowering cost and addressing dentophobia or limited access.",
+      "supporting_chunks": [
+        0,
+        2
+      ],
+      "confidence": 0.75,
+      "suggested_experiments": [
+        "Pilot the system in a community clinic and compare diagnostic outcomes with those of licensed dentists.",
+        "Perform a cost‑effectiveness analysis comparing the AI system to traditional dental visits.",
+        "Survey users to assess changes in dental visit frequency and perceived barriers after using the AI tool."
+      ]
+    }
+  ],
+  "paths": {
+    "extracted": "C:\\Users\\equin\\OneDrive\\Desktop\\MediSearch_AI\\outputs\\extracted_text.txt",
+    "cleaned": "C:\\Users\\equin\\OneDrive\\Desktop\\MediSearch_AI\\outputs\\cleaned_text.txt",
+    "chunks": "C:\\Users\\equin\\OneDrive\\Desktop\\MediSearch_AI\\outputs\\chunks.txt",
+    "embeddings": "C:\\Users\\equin\\OneDrive\\Desktop\\MediSearch_AI\\outputs\\embeddings.npy",
+    "faiss_index": "C:\\Users\\equin\\OneDrive\\Desktop\\MediSearch_AI\\outputs\\faiss.index"
+  }
+}

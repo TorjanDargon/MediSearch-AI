@@ -1,0 +1,42 @@
+# core
+fastapi
+uvicorn[standard]
+python-dotenv
+ipykernel
+
+# scraping & pdf
+scrapy
+pdfplumber
+PyPDF2
+pymupdf
+
+
+# LLMs & agents
+langgraph
+langchain
+openai
+transformers
+sentence-transformers
+
+# NLP / biomedical
+spacy
+scispacy
+
+# models & ML infra
+torch            # CPU or GPU build depending on your machine
+faiss-cpu        # for vector search (or use elasticsearch/opensearch)
+
+# DBs & graph
+psycopg2-binary
+neo4j
+elasticsearch
+
+# frontend / demos
+streamlit
+gradio
+
+# utilities
+requests
+pandas
+plotly
+networkx
